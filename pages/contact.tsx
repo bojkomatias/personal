@@ -1,7 +1,8 @@
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
 import axios from 'axios'
+
 export async function getStaticProps() {
-  const { data } = await axios.get('/contact')
+  const { data } = await axios.get(`/contact`)
   const { offices } = data
 
   return {
@@ -11,7 +12,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Contact({ offices }) {
+export default function Contact({ offices = null }) {
   return (
     <main className="overflow-hidden">
       {/* Header */}

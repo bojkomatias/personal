@@ -2,6 +2,7 @@ import axios from 'axios'
 export async function getStaticProps() {
   const { data } = await axios.get('/about')
   const { about, people } = data
+  console.log(data)
 
   return {
     props: {
@@ -11,7 +12,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function About({ about, people }) {
+export default function About({ about = null, people = null }) {
   return (
     <>
       <div className="bg-white">

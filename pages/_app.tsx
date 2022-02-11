@@ -9,9 +9,7 @@ axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <pre>{JSON.stringify(pageProps, null, 2)}</pre> */}
       <Navbar />
-
       <Component {...pageProps} />
       <Footer />
     </>

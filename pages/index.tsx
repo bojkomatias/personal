@@ -4,5 +4,5 @@ import Auth from '../components/Auth'
 import Account from '../components/Account'
 
 export default function Home() {
-  return <>nashe</>
+  return <div>SAPE</div>
 }
