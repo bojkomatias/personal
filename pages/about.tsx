@@ -1,18 +1,35 @@
-import axios from 'axios'
-export async function getStaticProps() {
-  const { data } = await axios.get('/about')
-  const { about, people } = data
-  console.log(data)
-
-  return {
-    props: {
-      about,
-      people,
-    },
-  }
+const about = {
+  title: 'teggo',
+  text: 'Start building for free, then add a site plan to go live. Account plans unlock additional features.',
 }
+const people = [
+  {
+    name: 'Whitney Francis',
+    role: 'Copywriter',
+    imageUrl:
+      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+    twitterUrl: '#',
+    linkedinUrl: '#',
+  },
+  {
+    name: 'Whitney Francis',
+    role: 'Copywriter',
+    imageUrl:
+      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+    twitterUrl: '#',
+    linkedinUrl: '#',
+  },
+  {
+    name: 'Whitney Francis',
+    role: 'Copywriter',
+    imageUrl:
+      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+    twitterUrl: '#',
+    linkedinUrl: '#',
+  },
+]
 
-export default function About({ about = null, people = null }) {
+export default function About() {
   return (
     <>
       <div className="bg-white">

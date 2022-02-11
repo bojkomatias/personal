@@ -1,18 +1,24 @@
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
-import axios from 'axios'
+const offices = [
+  {
+    id: 1,
+    city: 'Los Angeles',
+    address: ['4556 Brendan Ferry', 'Los Angeles, CA 90210'],
+  },
+  {
+    id: 2,
+    city: 'New York',
+    address: ['886 Walter Streets', 'New York, NY 12345'],
+  },
+  {
+    id: 3,
+    city: 'Toronto',
+    address: ['7363 Cynthia Pass', 'Toronto, ON N3Y 4H8'],
+  },
+  { id: 4, city: 'London', address: ['114 Cobble Lane', 'London N1 2EF'] },
+]
 
-export async function getStaticProps() {
-  const { data } = await axios.get(`/contact`)
-  const { offices } = data
-
-  return {
-    props: {
-      offices,
-    },
-  }
-}
-
-export default function Contact({ offices = null }) {
+export default function Contact() {
   return (
     <main className="overflow-hidden">
       {/* Header */}
