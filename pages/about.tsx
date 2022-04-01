@@ -33,12 +33,12 @@ export default function About() {
   return (
     <>
       <div className="bg-white">
-        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 md:px-8">
           <div className="text-center">
             <h2 className="text-base font-semibold uppercase tracking-wide text-primary-600">
               {about.title}
             </h2>
-            <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+            <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight md:text-6xl">
               About us
             </p>
             <p className="mx-auto mt-5 max-w-xl text-xl text-gray-500">
@@ -48,9 +48,9 @@ export default function About() {
         </div>
       </div>
       <div className="bg-white">
-        <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 md:px-8 md:py-24">
           <div className="space-y-12">
-            <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+            <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 md:max-w-5xl">
               <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
                 Meet our team
               </h2>
@@ -61,7 +61,7 @@ export default function About() {
             </div>
             <ul
               role="list"
-              className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:max-w-5xl lg:grid-cols-3"
+              className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 md:max-w-5xl md:grid-cols-3"
             >
               {people.map((person) => (
                 <li key={person.name}>

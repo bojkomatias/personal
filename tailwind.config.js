@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.rose,
+        primary: colors.cyan,
+      },
+      backgroundImage: {
+        pic: "url('/pic.webp')",
       },
     },
   },

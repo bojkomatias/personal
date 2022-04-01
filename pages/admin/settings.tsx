@@ -130,7 +130,7 @@ export default function Example() {
         <Transition.Root show={mobileMenuOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 z-40 flex lg:hidden"
+            className="fixed inset-0 z-40 flex md:hidden"
             onClose={setMobileMenuOpen}
           >
             <Transition.Child
@@ -233,7 +233,7 @@ export default function Example() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden lg:flex lg:flex-shrink-0">
+        <div className="hidden md:flex md:flex-shrink-0">
           <div className="flex w-20 flex-col">
             <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-blue-600">
               <div className="flex-1">
@@ -279,7 +279,7 @@ export default function Example() {
 
         <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
           {/* Mobile top navigation */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <div className="flex items-center justify-between bg-blue-600 py-2 px-4 sm:px-6">
               <div>
                 <img
@@ -308,7 +308,7 @@ export default function Example() {
                 aria-label="Breadcrumb"
                 className="border-blue-gray-200 border-b bg-white xl:hidden"
               >
-                <div className="mx-auto flex max-w-3xl items-start py-3 px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto flex max-w-3xl items-start py-3 px-4 sm:px-6 md:px-8">
                   <a
                     href="#"
                     className="text-blue-gray-900 -ml-1 inline-flex items-center space-x-3 text-sm font-medium"
@@ -365,7 +365,7 @@ export default function Example() {
 
                 {/* Main content */}
                 <div className="flex-1 xl:overflow-y-auto">
-                  <div className="mx-auto max-w-3xl py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
+                  <div className="mx-auto max-w-3xl py-10 px-4 sm:px-6 md:py-12 md:px-8">
                     <h1 className="text-blue-gray-900 text-3xl font-extrabold">
                       Account
                     </h1>

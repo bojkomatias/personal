@@ -90,10 +90,10 @@ export default function Example() {
         <Disclosure as="nav" className="flex-shrink-0 bg-indigo-600">
           {({ open }) => (
             <>
-              <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+              <div className="mx-auto max-w-7xl px-2 sm:px-4 md:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                   {/* Logo section */}
-                  <div className="flex items-center px-2 lg:px-0 xl:w-64">
+                  <div className="flex items-center px-2 md:px-0 xl:w-64">
                     <div className="flex-shrink-0">
                       <img
                         className="h-8 w-auto"
@@ -104,8 +104,8 @@ export default function Example() {
                   </div>
 
                   {/* Search section */}
-                  <div className="flex flex-1 justify-center lg:justify-end">
-                    <div className="w-full px-2 lg:px-6">
+                  <div className="flex flex-1 justify-center md:justify-end">
+                    <div className="w-full px-2 md:px-6">
                       <label htmlFor="search" className="sr-only">
                         Search projects
                       </label>
@@ -123,7 +123,7 @@ export default function Example() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex lg:hidden">
+                  <div className="flex md:hidden">
                     {/* Mobile menu button */}
                     <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-indigo-600 p-2 text-indigo-400 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600">
                       <span className="sr-only">Open main menu</span>
@@ -138,7 +138,7 @@ export default function Example() {
                     </Disclosure.Button>
                   </div>
                   {/* Links section */}
-                  <div className="hidden lg:block lg:w-80">
+                  <div className="hidden md:block md:w-80">
                     <div className="flex items-center justify-end">
                       <div className="flex">
                         {navigation.map((item) => (
@@ -197,7 +197,7 @@ export default function Example() {
                 </div>
               </div>
 
-              <Disclosure.Panel className="lg:hidden">
+              <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pt-2 pb-3">
                   {navigation.map((item) => (
                     <Disclosure.Button
@@ -236,12 +236,12 @@ export default function Example() {
         </Disclosure>
 
         {/* 3 column wrapper */}
-        <div className="mx-auto w-full max-w-7xl flex-grow lg:flex xl:px-8">
+        <div className="mx-auto w-full max-w-7xl flex-grow md:flex xl:px-8">
           {/* Left sidebar & main wrapper */}
           <div className="min-w-0 flex-1 bg-white xl:flex">
             {/* Account profile */}
             <div className="bg-white xl:w-64 xl:flex-shrink-0 xl:border-r xl:border-gray-200">
-              <div className="py-6 pl-4 pr-6 sm:pl-6 lg:pl-8 xl:pl-0">
+              <div className="py-6 pl-4 pr-6 sm:pl-6 md:pl-8 xl:pl-0">
                 <div className="flex items-center justify-between">
                   <div className="flex-1 space-y-8">
                     <div className="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
@@ -323,8 +323,8 @@ export default function Example() {
             </div>
 
             {/* Projects List */}
-            <div className="bg-white lg:min-w-0 lg:flex-1">
-              <div className="border-b border-t border-gray-200 pl-4 pr-6 pt-4 pb-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
+            <div className="bg-white md:min-w-0 md:flex-1">
+              <div className="border-b border-t border-gray-200 pl-4 pr-6 pt-4 pb-4 sm:pl-6 md:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
                 <div className="flex items-center">
                   <h1 className="flex-1 text-lg font-medium">Projects</h1>
                   <Menu as="div" className="relative">
@@ -398,7 +398,7 @@ export default function Example() {
                 {projects.map((project) => (
                   <li
                     key={project.repo}
-                    className="relative py-5 pl-4 pr-6 hover:bg-gray-50 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6"
+                    className="relative py-5 pl-4 pr-6 hover:bg-gray-50 sm:py-6 sm:pl-6 md:pl-8 xl:pl-6"
                   >
                     <div className="flex items-center justify-between space-x-4">
                       {/* Repo name and link */}
@@ -507,8 +507,8 @@ export default function Example() {
             </div>
           </div>
           {/* Activity feed */}
-          <div className="bg-gray-50 pr-4 sm:pr-6 lg:flex-shrink-0 lg:border-l lg:border-gray-200 lg:pr-8 xl:pr-0">
-            <div className="pl-6 lg:w-80">
+          <div className="bg-gray-50 pr-4 sm:pr-6 md:flex-shrink-0 md:border-l md:border-gray-200 md:pr-8 xl:pr-0">
+            <div className="pl-6 md:w-80">
               <div className="pt-6 pb-2">
                 <h2 className="text-sm font-semibold">Activity</h2>
               </div>
