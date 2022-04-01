@@ -36,7 +36,7 @@ const social = [
 ]
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
+  { name: 'About', href: '#' },
   { name: 'Contact', href: '/contact' },
 ]
 function classNames(...classes) {

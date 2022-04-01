@@ -21,7 +21,7 @@ const offices = [
 export default function Contact() {
   return (
     <main className="h-screen w-full overflow-auto">
-      <div className="mx-auto px-4 pt-12 sm:px-6 md:px-8">
+      <div className="mx-auto px-4 pt-12 sm:px-6 md:px-8 lg:mt-48">
         <div className="relative bg-white shadow-xl">
           <h2 id="contact-heading" className="sr-only">
             Contact us
@@ -29,13 +29,13 @@ export default function Contact() {
 
           {/* Contact information */}
           <div className="relative bg-gray-50">
-            <div className="relative mx-auto max-w-7xl md:grid md:grid-cols-5">
+            <div className="relative mx-auto max-w-7xl md:grid-cols-5 lg:grid">
               <div className="bg-gray-50 py-16 px-4 sm:px-6 md:col-span-2 md:px-8 md:py-24 xl:pr-12">
-                <div className="mx-auto max-w-lg">
-                  <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 ">
+                <div className="mx-auto max-w-xl">
+                  <h2 className="text-4xl font-extrabold uppercase tracking-tight text-gray-900">
                     Get in touch
                   </h2>
-                  <dl className="mt-8 text-base text-gray-500">
+                  <dl className="mt-8 text-xl text-gray-500">
                     <div>
                       <dt className="sr-only">Postal address</dt>
                       <dd>
