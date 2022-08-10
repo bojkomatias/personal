@@ -46,22 +46,22 @@ function classNames(...classes) {
 export default function Example() {
   const [user, setuser] = useState(supabase.auth.user())
   return (
-    <Popover className=" border-r-4 border-transparent bg-stone-200 transition-all duration-500 hover:border-primary-600 hover:bg-stone-900 ">
+    <Popover className=" hover:border-primary-600 border-r-4 border-transparent bg-neutral-200 transition-all duration-500 hover:bg-neutral-900 ">
       <div
         className="pointer-events-none absolute inset-0 z-30 h-screen  shadow"
         aria-hidden="true"
       />
       <div className="mx-auto flex h-full flex-col items-center justify-between p-1">
         <div className="flex-grow">
-          <Popover.Button className="mt-2 flex items-center justify-center rounded-md text-primary-600 transition duration-300 hover:scale-110">
+          <Popover.Button className="text-primary-600 mt-2 flex items-center justify-center rounded-md transition duration-300 hover:scale-110">
             <span className="sr-only">Open menu</span>
-            <CubeTransparentIcon className="h-8 md:h-12 " aria-hidden="true" />
+            <CubeTransparentIcon className="h-8 sm:h-12 " aria-hidden="true" />
           </Popover.Button>
         </div>
         <div className="mb-6 flex flex-col items-center gap-4">
           {social.map((link) => (
             <a key={link.href} href={link.href} target="_blank">
-              <link.icon className="h-6 w-6 fill-stone-600 hover:fill-primary-600" />
+              <link.icon className="hover:fill-primary-600 h-6 w-6 fill-neutral-600" />
             </a>
           ))}
         </div>
@@ -80,11 +80,11 @@ export default function Example() {
           focus
           className="absolute inset-x-0 top-0 left-0 z-30 w-full origin-top-left transform transition"
         >
-          <div className="ml-10 h-screen divide-y-2 divide-gray-50 bg-white ring-1 ring-black ring-opacity-5 md:ml-16 ">
+          <div className="ml-10 h-screen divide-y-2 divide-gray-50 bg-white ring-1 ring-black ring-opacity-5 sm:ml-16 ">
             <div className="px-5 pt-5 pb-6 sm:pb-8">
               <div className="flex items-center justify-end">
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-stone-200 hover:text-gray-500 focus:outline-none">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-neutral-200 hover:text-gray-500 focus:outline-none">
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
                 </div>
@@ -97,7 +97,7 @@ export default function Example() {
                         key={item.href}
                         as="a"
                         href={item.href}
-                        className="border-b-4 border-transparent transition duration-500 hover:-skew-x-3  hover:border-primary-600"
+                        className="hover:border-primary-600 border-b-4 border-transparent transition duration-500  hover:-skew-x-3"
                       >
                         {item.name}
                       </Popover.Button>

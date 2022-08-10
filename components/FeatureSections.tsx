@@ -50,10 +50,10 @@ const communicationFeatures = [
 
 export const FeatureSectionA = () => {
   return (
-    <div className="overflow-hidden bg-gray-50 py-16 md:py-24">
-      <div className="relative mx-auto max-w-xl px-4 sm:px-6 md:max-w-7xl md:px-8">
+    <div className="overflow-hidden bg-gray-50 py-16 sm:py-24">
+      <div className="relative mx-auto max-w-xl px-4 sm:max-w-7xl sm:px-6 sm:px-8">
         <svg
-          className="absolute left-full hidden -translate-x-1/2 -translate-y-1/4 transform md:block"
+          className="absolute left-full hidden -translate-x-1/2 -translate-y-1/4 transform sm:block"
           width={404}
           height={784}
           fill="none"
@@ -96,7 +96,7 @@ export const FeatureSectionA = () => {
           </p>
         </div>
 
-        <div className="relative mt-12 md:mt-24 md:grid md:grid-cols-2 md:items-center md:gap-8">
+        <div className="relative mt-12 sm:mt-24 sm:grid sm:grid-cols-2 sm:items-center sm:gap-8">
           <div className="relative">
             <h3 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               Transfer funds world-wide
@@ -127,9 +127,9 @@ export const FeatureSectionA = () => {
             </dl>
           </div>
 
-          <div className="relative -mx-4 mt-10 md:mt-0" aria-hidden="true">
+          <div className="relative -mx-4 mt-10 sm:mt-0" aria-hidden="true">
             <svg
-              className="absolute left-1/2 -translate-x-1/2 translate-y-16 transform md:hidden"
+              className="absolute left-1/2 -translate-x-1/2 translate-y-16 transform sm:hidden"
               width={784}
               height={404}
               fill="none"
@@ -170,7 +170,7 @@ export const FeatureSectionA = () => {
         </div>
 
         <svg
-          className="absolute right-full hidden translate-x-1/2 translate-y-12 transform md:block"
+          className="absolute right-full hidden translate-x-1/2 translate-y-12 transform sm:block"
           width={404}
           height={784}
           fill="none"
@@ -203,9 +203,9 @@ export const FeatureSectionA = () => {
           />
         </svg>
 
-        <div className="relative mt-12 sm:mt-16 md:mt-24">
-          <div className="md:grid md:grid-flow-row-dense md:grid-cols-2 md:items-center md:gap-8">
-            <div className="md:col-start-2">
+        <div className="relative mt-12 sm:mt-16 sm:mt-24">
+          <div className="sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:items-center sm:gap-8">
+            <div className="sm:col-start-2">
               <h3 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                 Always in the loop
               </h3>
@@ -234,9 +234,9 @@ export const FeatureSectionA = () => {
               </dl>
             </div>
 
-            <div className="relative -mx-4 mt-10 md:col-start-1 md:mt-0">
+            <div className="relative -mx-4 mt-10 sm:col-start-1 sm:mt-0">
               <svg
-                className="absolute left-1/2 -translate-x-1/2 translate-y-16 transform md:hidden"
+                className="absolute left-1/2 -translate-x-1/2 translate-y-16 transform sm:hidden"
                 width={784}
                 height={404}
                 fill="none"
@@ -328,7 +328,7 @@ const featuresB = [
 export const FeatureSectionB = () => {
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 md:py-24 md:px-8">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 sm:py-24 sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold text-gray-900">
             All-in-one platform
@@ -338,7 +338,7 @@ export const FeatureSectionB = () => {
             Malesuada adipiscing sagittis vel nulla nec.
           </p>
         </div>
-        <dl className="mt-12 space-y-10 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 md:grid-cols-4 md:gap-x-8">
+        <dl className="mt-12 space-y-10 sm:grid sm:grid-cols-2 sm:grid-cols-4 sm:gap-x-6 sm:gap-y-12 sm:gap-x-8 sm:space-y-0">
           {featuresB.map((feature) => (
             <div key={feature.name} className="relative">
               <dt>

@@ -1,46 +1,98 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { ArrowRightIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { ChevronRightIcon } from '@heroicons/react/solid'
 import { FeatureSectionA, FeatureSectionB } from '../components/FeatureSections'
-import { TrustedBy } from '../components/TrustedBy'
-import Typewriter from 'typewriter-effect'
+import gsap from 'gsap'
+import Terminal from '../components/Landing/Terminal'
+import ImageS from '../components/Landing/ImageS'
 
 export default function Home() {
-  return (
-    <main className="flex h-screen w-full flex-col justify-between">
-      <div className="flex w-full flex-col items-center justify-between overflow-hidden leading-10 md:flex-row-reverse">
-        <div className="flex-end place-self-end md:place-self-start">
-          <img
-            src="/pic.webp"
-            alt=""
-            className="max-h-[20rem] rounded-bl-full sepia-0 transition duration-500 hover:sepia md:max-h-[30rem] "
-          />
-        </div>
-        <div className="my-2 ml-4 mr-3 place-self-start text-6xl font-bold uppercase md:ml-12 md:place-self-center md:text-7xl ">
-          Matias
-          <div className="text-primary-600">Bojko</div>
-        </div>
-      </div>
+  useEffect(() => {
+    gsap.from('#icon', { width: 0, delay: 3, duration: 0.3 })
+    gsap.fromTo(
+      '.ringo',
+      {
+        opacity: 1,
+        duration: 1,
+        position: 'absolute',
+        top: '25%',
+        left: '25%',
+        width: '50%',
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 2,
+        position: 'absolute',
+        width: '10rem',
+        top: '60%',
+        left: '85%',
+      }
+    )
+    gsap.fromTo(
+      '#content',
+      { opacity: 0, duration: 1 },
+      { opacity: 1, duration: 1, delay: 3 }
+    )
+    gsap.from('#title', {
+      opacity: 0,
+      y: 50,
+      delay: 2.5,
+      duration: 0.7,
+    })
+    gsap.from('#paragraph', {
+      opacity: 0,
+      y: 20,
+      delay: 2.7,
+      duration: 1,
+    })
+    gsap.from('#terminal', {
+      opacity: 0,
+      x: 20,
+      delay: 3.4,
+      duration: 1,
+    })
+  }, [])
 
-      <div className="relative mx-4 mb-20 rounded-md border-[0.2rem] border-t-[2.1rem] border-black bg-stone-300 p-12 font-mono lowercase md:mx-12">
-        <div className="absolute -top-6 left-2 h-3 w-3 rounded-full bg-red-500"></div>
-        <div className="absolute -top-6 left-6 h-3 w-3 rounded-full bg-yellow-500"></div>
-        <div className="absolute -top-6 left-10 h-3 w-3 rounded-full bg-green-500"></div>
-        <div className="text-4xl md:text-6xl">
-          $ Hi there, I can
-          <div className="text-primary-600">
-            <Typewriter
-              options={{
-                strings: ['design', 'develop', 'implement'],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </div>{' '}
-          your next web project
+  return (
+    <div className="h-full w-full">
+      <a
+        href="/projects"
+        className="ringo absolute relative z-40 cursor-pointer grayscale hover:brightness-0"
+      >
+        <img
+          src="/ring.png"
+          alt=""
+          className="absolute top-0 -rotate-12 animate-spin blur-sm"
+        />{' '}
+        <img
+          src="/ring.png"
+          alt=""
+          className="absolute top-0 z-40 animate-spin"
+        />
+        <ArrowRightIcon
+          id="icon"
+          className="absolute top-1/2 left-3/4 z-40 h-10 w-10 -translate-x-16 translate-y-6 animate-pulse hover:animate-none"
+        />
+      </a>
+      <div id="content">
+        <div
+          id="title"
+          className="m-8 text-4xl font-bold uppercase text-stone-800 hover:drop-shadow md:m-24 md:text-6xl"
+        >
+          Matias bojko
         </div>
+        <div id="paragraph" className="m-8 text-xl text-stone-600 md:m-24">
+          Hi there!
+          <br />
+          I'm a systems engineer based in Argentina. I've been developing web
+          applications for the better part of 5 years now. I'm always down for a
+          challenge and enjoy bringing forth elegant and briliant solutions to
+          any problem that comes to hand.
+        </div>
+        <ImageS />
       </div>
-    </main>
+    </div>
   )
 }
