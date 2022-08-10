@@ -46,7 +46,7 @@ function classNames(...classes) {
 export default function Example() {
   const [user, setuser] = useState(supabase.auth.user())
   return (
-    <Popover className=" hover:border-primary-600 border-r-4 border-transparent bg-neutral-200 transition-all duration-500 hover:bg-neutral-900 ">
+    <Popover className=" hover:border-primary-600 z-30 border-r-4 border-transparent bg-neutral-200 transition-all duration-500  hover:bg-neutral-900">
       <div
         className="pointer-events-none absolute inset-0 z-30 h-screen  shadow"
         aria-hidden="true"

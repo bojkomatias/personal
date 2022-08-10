@@ -43,17 +43,17 @@ const items = [
 ]
 const Sidebar = () => {
   useEffect(() => {
-    gsap.from('#sidebar', { delay: 3.3, duration: 1, x: 100, opacity: 0 })
+    gsap.from('#sidebar', { delay: 3, duration: 1, x: 100, opacity: 0 })
   }, [])
 
   return (
     <div
       id="sidebar"
-      className="absolute top-[35%] right-1 flex h-1/4 w-10 flex-col justify-between rounded-lg bg-stone-200 py-3 px-1 sm:right-8 sm:w-12 "
+      className="absolute top-[35%] right-1 z-20 flex h-1/4 w-10 flex-col justify-between rounded-lg bg-stone-200 py-3 px-1 md:right-8 md:w-12 "
     >
       {items.map((item, index) => (
         <a target={'_blank'} key={item.label} href={item.href}>
-          <item.icon className="mx-auto w-full fill-stone-500 transition duration-300 hover:scale-105 hover:fill-stone-600" />
+          <item.icon className="mx-auto w-full fill-stone-500 transition duration-300 hover:scale-110 hover:fill-stone-600" />
         </a>
       ))}
     </div>

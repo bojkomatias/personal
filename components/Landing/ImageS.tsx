@@ -5,21 +5,30 @@ import { useEffect } from 'react'
 const ImageS = () => {
   useEffect(() => {
     gsap.from('img', {
-      ease: Power3.easeOut,
+      ease: Power3.easeInOut,
       position: 'absolute',
       left: '0%',
-      delay: 4.3,
+      delay: 2.3,
       duration: 0.9,
     })
   }, [])
 
   return (
-    <div className="relative mx-32 invert">
+    <div className="relative mx-12 mt-24 invert md:mx-24">
       <img src="/matu.webp" className="photo-hover -rotate-3" />
-      <img src="/matu2.webp" className="photo-hover left-[15rem] rotate-6" />
-      <img src="/matu5.webp" className="photo-hover left-[30rem] -rotate-6 " />
-      <img src="/matu4.webp" className="photo-hover left-[45rem] -rotate-12" />
-      <img src="/matu6.webp" className="photo-hover left-[60rem] rotate-6" />
+      <img src="/matu2.webp" className="photo-hover left-[15%] rotate-6" />
+      <img
+        src="/matu5.webp"
+        className="photo-hover hidden -rotate-6 md:left-[30%] md:block"
+      />
+      <img
+        src="/matu4.webp"
+        className="photo-hover hidden -rotate-12 md:left-[45%] md:block"
+      />
+      <img
+        src="/matu6.webp"
+        className="photo-hover left-[30%] rotate-6 md:left-[60%]"
+      />
     </div>
   )
 }

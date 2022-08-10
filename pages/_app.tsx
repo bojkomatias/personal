@@ -2,9 +2,6 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import axios from 'axios'
 import Sidebar from '../components/Layout/Sidebar'
-import React, { useEffect, useState } from 'react'
-import gsap from 'gsap'
-import { ArrowRightIcon } from '@heroicons/react/outline'
 
 axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 
