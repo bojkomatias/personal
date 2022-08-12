@@ -11,7 +11,7 @@
 
 @layer components {
   .photo-hover {
-    @apply absolute -z-10 aspect-auto h-60 cursor-pointer rounded-lg shadow-xl sepia  transition duration-700 ease-in-out hover:z-10 hover:rotate-0 hover:scale-125 hover:sepia-0 lg:h-96;
+    @apply absolute -z-10 aspect-auto h-60 cursor-pointer rounded-lg shadow-xl sepia-[60%] transition duration-700 ease-in-out hover:z-10 hover:rotate-0 hover:scale-110 hover:sepia-[30%] lg:h-96;
   }
 
   .html-start {

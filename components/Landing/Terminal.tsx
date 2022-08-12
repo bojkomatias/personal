@@ -12,21 +12,21 @@ const Terminal = () => {
   }, [])
 
   return (
-    <div id="terminal" className="ml-4 mr-12 mt-20 md:m-24">
-      <div className="m-4 text-5xl font-bold">Get in touch</div>
-      <p className="m-2 text-2xl font-thin">
+    <div id="terminal" className="ml-4 mr-12 mt-10 md:mx-24">
+      <div className="m-4 text-4xl font-bold uppercase">Get in touch</div>
+      <p className="ml-8 text-2xl font-thin">
         If you enjoyed what I do and want to give it a try, write me an email
       </p>
 
       <form
-        className="mt-24 rounded-lg border-2 border-stone-50  bg-stone-200 font-mono"
+        className="mt-8 rounded-lg border-2 border-stone-50  bg-stone-200 font-mono"
         action="https://formsubmit.co/bojko.matias@gmail.com"
         method="POST"
       >
         <div className="relative h-8 w-full bg-gray-100 p-2">
-          <div className="absolute h-4 w-4 rounded-full bg-cyan-400"></div>
-          <div className="absolute h-4 w-4 translate-x-6 rounded-full bg-blue-600"></div>
-          <div className="absolute h-4 w-4 translate-x-12 rounded-full bg-pink-400"></div>
+          <div className="absolute h-4 w-4 rounded-full bg-cyan-400 hover:brightness-75"></div>
+          <div className="absolute h-4 w-4 translate-x-6 rounded-full bg-blue-600 hover:brightness-75"></div>
+          <div className="absolute h-4 w-4 translate-x-12 rounded-full bg-pink-400 hover:brightness-75"></div>
         </div>
         <input
           type="hidden"

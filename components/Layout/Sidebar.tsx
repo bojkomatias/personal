@@ -53,7 +53,7 @@ const Sidebar = () => {
     >
       {items.map((item, index) => (
         <a target={'_blank'} key={item.label} href={item.href}>
-          <item.icon className="mx-auto w-full fill-stone-500 transition duration-300 hover:scale-110 hover:fill-stone-600" />
+          <item.icon className="mx-auto w-full fill-stone-500 transition duration-300 hover:scale-110 hover:fill-stone-600 hover:brightness-0" />
         </a>
       ))}
     </div>
