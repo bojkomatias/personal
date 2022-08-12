@@ -17,7 +17,7 @@ function projects() {
   return (
     <div id="proj">
       {projectList.map((p) => (
-        <Viewer project={p} />
+        <Viewer key={p.name} project={p} />
       ))}
     </div>
   )

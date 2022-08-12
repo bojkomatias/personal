@@ -18,6 +18,7 @@ const Viewer = ({ project }) => {
               developers: <span>me</span>,{' '}
               {project.devs.map((dev) => (
                 <a
+                  key={dev.name}
                   href={dev.link}
                   target={'_blank'}
                   className="underline underline-offset-2"
@@ -42,6 +43,7 @@ const Viewer = ({ project }) => {
       <div className=" pointer-events-none mt-2 opacity-0 transition delay-150 duration-300 ease-in-out group-hover:block group-hover:opacity-100">
         {project.images.map((image, i) => (
           <img
+            key={image}
             src={image}
             alt=""
             className={`absolute z-50 ml-0 aspect-auto w-80 translate-x-0 pl-0 invert transition-all duration-700 group-hover:pl-6 lg:w-96 lg:group-hover:ml-24 ${
