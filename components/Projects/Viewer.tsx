@@ -1,13 +1,11 @@
-import React from 'react'
-
 const Viewer = ({ project }) => {
   return (
-    <div className="group ml-6 mr-12 mt-8 h-16 rounded-md bg-stone-100 transition-all duration-300 ease-in-out hover:bg-stone-900 hover:text-white md:mx-24">
+    <div className="group ml-6 mr-12 mt-8 h-16 rounded-md bg-stone-50 transition-all duration-300 ease-in-out hover:bg-black hover:text-white md:mx-24">
       <div className="z-0 flex cursor-pointer items-center justify-between">
         <a
           href={project.link}
           target="_blank"
-          className="p-3 text-xl md:text-3xl"
+          className="pointer-events-none p-3 text-xl transition-all delay-150 duration-300 group-hover:font-bold md:pointer-events-auto md:text-2xl"
         >
           {project.name}
         </a>
@@ -15,7 +13,7 @@ const Viewer = ({ project }) => {
           <p className="font-thin italic">{project.description}</p>
           {project.devs ? (
             <p className="mt-1 text-[0.6rem] uppercase">
-              developers: <span>me</span>,{' '}
+              developers: <span>me, </span>
               {project.devs.map((dev) => (
                 <a
                   key={dev.name}
@@ -24,17 +22,20 @@ const Viewer = ({ project }) => {
                   className="underline underline-offset-2"
                 >
                   {dev.name}
+                  {', '}
                 </a>
               ))}
             </p>
           ) : null}
         </span>
-        <div className="flex text-sm">
-          {project.tags.map((t) => (
+        <div className="flex rounded-md ">
+          {project.tags.map((t, i) => (
             <img
               src={t}
               alt=""
-              className="pointer-events-none my-4 mx-2 aspect-square h-8 drop-shadow-sm transition duration-300 ease-in-out group-hover:invert"
+              className={`pointer-events-none my-4 mx-2 aspect-square h-8 brightness-110 drop-shadow grayscale invert saturate-[110%] group-hover:grayscale-0 ${
+                i > 2 ? 'hidden md:block' : ''
+              }`}
             />
           ))}
         </div>

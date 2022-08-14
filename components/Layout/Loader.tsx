@@ -14,6 +14,10 @@ const Loader = () => {
       right: '25%',
       width: '50%',
     })
+    gsap.to('.ringo', {
+      display: 'none',
+      delay: 3,
+    })
   }, [])
 
   return (
