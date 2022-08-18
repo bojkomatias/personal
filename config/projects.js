@@ -4,7 +4,7 @@ const projectList = [
     description: 'Doors and Windows ecommerce',
     link: 'https://dakalutech.com/',
     tags: ['/tags/next.svg', '/tags/tailwind.svg', '/tags/puppeteer.svg'],
-    images: ['/dak/dak1.png', '/dak/dak3.png', '/dak/dak2.png'],
+    images: ['/dak/dak1.webp', '/dak/dak3.webp', '/dak/dak2.webp'],
   },
   {
     name: 'Case History',
@@ -29,7 +29,7 @@ const projectList = [
     devs: [{ name: 'Nicolás Horn', link: 'https://nicohorn.com' }],
     tags: ['/tags/typescript.svg', '/tags/next.svg', '/tags/tailwind.svg'],
     images: [
-      '/be-neutral/ne1.png',
+      '/be-neutral/ne1.webp',
       '/be-neutral/ne3.png',
       '/be-neutral/ne2.png',
     ],
@@ -88,7 +88,7 @@ const projectList = [
     link: 'https://www.stadiumpass.io/',
     devs: [{ name: 'Amilcar Rey', link: 'https://github.com/amilcarrey' }],
     tags: ['/tags/next.svg', '/tags/tailwind.svg', '/tags/sol.svg'],
-    images: ['/stad/sp2.png', '/stad/sp1.png', '/stad/sp3.png'],
+    images: ['/stad/sp2.webp', '/stad/sp1.png', '/stad/sp3.png'],
   },
 ]
 export default projectList
