@@ -25,7 +25,7 @@ const projectList = [
   {
     name: 'Be Neutral',
     description: 'Cero carbon emition project',
-    link: 'https://beneutral.cl/',
+    link: 'https://beneutral-9da5syyce-beneutraldev.vercel.app/',
     devs: [{ name: 'Nicolás Horn', link: 'https://nicohorn.com' }],
     tags: ['/tags/typescript.svg', '/tags/next.svg', '/tags/tailwind.svg'],
     images: [
@@ -70,6 +70,17 @@ const projectList = [
       '/tags/docker.svg',
     ],
     images: ['/uap/uap1.png', '/uap/uap2.png', '/uap/uap3.png'],
+  },
+  {
+    name: 'Odontogram',
+    description: 'A application for dentists',
+    link: 'https://practicas-fcs.uap.edu.ar/',
+    devs: [
+      { name: 'Boris Kerbs', link: 'https://github.com/Boris-sys' },
+      { name: 'Gonzalo Miranda', link: 'https://github.com/Gonza-jmmss' },
+    ],
+    tags: ['/tags/vue.svg', '/tags/node.svg', '/tags/js.svg'],
+    images: ['/odo/odo1.png', '/odo/odo2.png', '/odo/odo3.png'],
   },
 ]
 export default projectList
