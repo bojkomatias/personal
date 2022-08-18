@@ -80,7 +80,15 @@ const projectList = [
       { name: 'Gonzalo Miranda', link: 'https://github.com/Gonza-jmmss' },
     ],
     tags: ['/tags/vue.svg', '/tags/node.svg', '/tags/js.svg'],
-    images: ['/odo/odo1.png', '/odo/odo2.png', '/odo/odo3.png'],
+    images: ['/odo/odo2.png', '/odo/odo1.png', '/odo/odo3.png'],
+  },
+  {
+    name: 'Stadium Pass',
+    description: 'An NFT minting page',
+    link: 'https://www.stadiumpass.io/',
+    devs: [{ name: 'Amilcar Rey', link: 'https://github.com/amilcarrey' }],
+    tags: ['/tags/next.svg', '/tags/tailwind.svg', '/tags/sol.svg'],
+    images: ['/stad/sp2.png', '/stad/sp1.png', '/stad/sp3.png'],
   },
 ]
 export default projectList
