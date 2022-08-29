@@ -12,7 +12,6 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/mb.png" type="image/x-icon" />
-          <title>Matías Bojko</title>
         </Head>
         <body>
           <Main />
