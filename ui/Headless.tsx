@@ -1,8 +1,4 @@
 "use client";
-/*
-For this file, I tried to combine, Headless components, to build better bases for later use.
-*/
-
 import {
 	Dialog as D,
 	Popover as P,
@@ -21,7 +17,7 @@ import {
 	PropsWithChildren,
 	SetStateAction,
 } from "react";
-import { Button } from "./Base";
+import { Button } from "./Button";
 
 interface DialogProps extends PropsWithChildren<{}> {
 	open: boolean;

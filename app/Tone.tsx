@@ -1,7 +1,6 @@
 "use client";
-
 import { CursorArrowRippleIcon } from "@heroicons/react/24/outline";
-import { Button } from "@ui/Base";
+import { Button } from "@ui/Button";
 
 function random() {
 	return `${Math.floor(Math.random() * (255 - 0 + 1) + 0)} ${Math.floor(

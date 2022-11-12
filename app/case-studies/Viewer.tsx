@@ -1,5 +1,5 @@
 "use client";
-import { Button, Card, List } from "@ui/Base";
+import { Card, List } from "@ui/Card";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,6 +11,7 @@ import {
 
 import { useRouter } from "next/navigation";
 import { cx } from "class-variance-authority";
+import { Button } from "@ui/Button";
 
 export default function Viewer({ cases }) {
 	const router = useRouter();

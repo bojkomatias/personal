@@ -1,4 +1,5 @@
-import { Card, Container, Heading } from "@ui/Base";
+import { Card } from "@ui/Card";
+import { Container, Heading } from "@ui/Container";
 
 export default function UsesPage() {
 	return (
