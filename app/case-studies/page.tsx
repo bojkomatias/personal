@@ -1,4 +1,4 @@
-import { Container, Heading } from "@ui/Base";
+import { Container, Heading } from "@ui/Container";
 import PocketBase from "pocketbase";
 
 import Viewer from "./Viewer";

@@ -46,10 +46,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={maven.className}>
+		<html lang="en" className={cx(maven.className, "dark")}>
 			<head>
 				<script dangerouslySetInnerHTML={{ __html: modeScript }} />
 				<link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
+				<meta charSet="UTF-8" />
+				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</head>
 			<body className="bg-base text-base-900 subpixel-antialiased dark:text-base-100 font-light">
 				<div className="fixed inset-0 -z-10">
@@ -64,10 +67,13 @@ export default function RootLayout({
 }
 
 import ModeToggle from "@ui/ModeToggle";
-import { Button, NavItem } from "@ui/Base";
+
 import { Popover } from "@ui/Headless";
-import HomeLink from "./HomeLink";
+
 import TonePicker from "./Tone";
+import { cx } from "class-variance-authority";
+import HomeLink, { NavItem } from "@ui/Nav";
+import { Button } from "@ui/Button";
 
 const items = [
 	{ name: "About", href: "/about" },

@@ -1,6 +1,7 @@
 import { cx } from "class-variance-authority";
 import { SVGProps } from "react";
-import { Button } from "./Base";
+import { Button } from "./Button";
+
 
 function WhatsAppIcon(
 	props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,

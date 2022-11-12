@@ -1,7 +1,7 @@
 "use client";
 
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
-import { Button } from "./Base";
+import { Button } from "./Button";
 
 export default function ModeToggle() {
 	function disableTransitionsTemporarily() {

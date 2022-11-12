@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@ui/Base';
+import { Button } from '@ui/Button';
 import { Input } from '@ui/Input';
 import { useState } from 'react';
 import { ExclamationCircleIcon, EyeIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';

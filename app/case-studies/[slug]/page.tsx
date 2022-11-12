@@ -1,3 +1,5 @@
+
+import { Container } from "@ui/Container";
 import fs from "fs";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
@@ -5,22 +7,13 @@ import path from "path";
 // import rehypeHighlight from 'rehype-highlight';
 import { ArticleLayout } from "./ArticleLayout";
 
-
-
-
-
 export default async function PostPage({ params }) {
 	const { source, frontMatter } = await getCase(params.slug);
 
 	return (
-		<>
-			<link
-				rel="stylesheet"
-				href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/night-owl.min.css"
-			/>
-
-			<ArticleLayout  source={source} />
-		</>
+		<Container>
+			<ArticleLayout source={source} />
+		</Container>
 	);
 }
 

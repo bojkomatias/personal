@@ -1,6 +1,7 @@
 "use client";
 
-import { Button } from "@ui/Base";
+
+import { Button } from "@ui/Button";
 import PocketBase from "pocketbase";
 import { useState } from "react";
 

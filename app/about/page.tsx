@@ -4,7 +4,9 @@ import {
 	EnvelopeIcon,
 	InboxIcon,
 } from "@heroicons/react/24/solid";
-import { Button, Container, Heading } from "@ui/Base";
+import { Button } from "@ui/Button";
+import { Container, Heading } from "@ui/Container";
+
 import { SocialIcons } from "@ui/SocialIcons";
 import Image from "next/image";
 import Link from "next/link";

@@ -8,12 +8,13 @@ import {
     InboxIcon,
     UserIcon,
 } from '@heroicons/react/24/outline'
-import { Button, NavItem } from '@ui/Base'
 import { Sidebar } from '@ui/Headless'
 import { useState } from 'react'
 import PocketBase from 'pocketbase'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { Button } from '@ui/Button'
+import { NavItem } from '@ui/Nav'
 
 const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon },
