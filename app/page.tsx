@@ -28,7 +28,7 @@ export default async function Page() {
 
 	return (
 		<>
-			<Container className="-mb-16 2xl:-mb-60 -mt-10">
+			<Container className=" 2xl:-mb-32 -mt-10">
 				<div className="max-w-6xl mx-auto">
 					<Image
 						src={"/logo.png"}
