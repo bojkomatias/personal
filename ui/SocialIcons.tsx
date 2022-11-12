@@ -2,7 +2,6 @@ import { cx } from "class-variance-authority";
 import { SVGProps } from "react";
 import { Button } from "./Button";
 
-
 function WhatsAppIcon(
 	props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
 ) {
@@ -98,7 +97,7 @@ export function SocialIcons({
 	return (
 		<div className={cx("mt-6 flex gap-6", className)}>
 			<SocialLink
-				href="https://walink.co/c3281e"
+				href="https://wtsi.me/5493455286829"
 				aria-label="Contact me on WhatsApp"
 				text="Contact me on WhatsApp"
 				color={cx("group-hover:fill-[#25D366]", fill)}
