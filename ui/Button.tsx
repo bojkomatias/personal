@@ -1,4 +1,3 @@
-"use client";
 import { FC, forwardRef } from "react";
 import Link from "next/link";
 import { cva, cx, VariantProps } from "class-variance-authority";
