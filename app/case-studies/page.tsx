@@ -4,12 +4,11 @@ import PocketBase from "pocketbase";
 import Viewer from "./Viewer";
 
 async function getCases() {
-	const client = new PocketBase(process.env.POCKETBASE_URL);
+	const res = await fetch(
+		`${process.env.POCKETBASE_URL}/api/collections/case_studies/records`,
+	);
 
-	const data = await client.records.getList("case_studies", 1, 50, {
-		filter: 'created >= "2022-01-01 00:00:00"',
-	});
-
+	const data = await res.json();
 	return data?.items;
 }
 
