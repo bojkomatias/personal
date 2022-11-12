@@ -14,10 +14,11 @@ import { Photos } from "./Photos";
 import PocketBase from "pocketbase";
 
 async function getCases() {
-	const client = new PocketBase(process.env.POCKETBASE_URL);
+	const res = await fetch(
+		`${process.env.POCKETBASE_URL}/api/collections/case_studies/records?page=1&perPage=4`,
+	);
 
-	const data = await client.records.getList("case_studies", 1, 4);
-
+	const data = await res.json();
 	return data?.items;
 }
 
@@ -134,6 +135,7 @@ function Resume() {
 
 export default async function Page() {
 	const cases = await getCases();
+
 	return (
 		<>
 			<Container className="-mb-10">
