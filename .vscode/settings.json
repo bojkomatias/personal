@@ -1,3 +1,13 @@
 {
-  "cSpell.words": ["Sudamericana"]
+  "cSpell.words": [
+    "pocketbase",
+    "rome",
+    "rosetta",
+    "styleas",
+    "Sudamericana"
+  ],
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "editor.defaultFormatter": "rome.rome",
+  "cSpell.language": "en,es"
 }

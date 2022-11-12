@@ -1,32 +1,52 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require("tailwindcss/colors");
+
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        mono: ['Source Code Pro', ...defaultTheme.fontFamily.mono],
-      },
-      backgroundImage: {
-        pic: "url('/pic.webp')",
-      },
-      keyframes: {
-        wiggle: {
-          '0%, 100%': {
-            transform: ' translateY(2px) translateX(-2px) rotate(2.5deg)',
-            filter: 'saturate(0)',
-          },
-          '40%, 60%': {
-            transform: 'translateY(-2px) translateX(2px) rotate(3.5deg)',
-            filter: 'saturate(2)',
-          },
-        },
-      },
-      animation: {
-        wiggle: 'wiggle 5s ease-in-out infinite',
-      },
-    },
-  },
-}
+	darkMode: "class",
+	content: ["./app/**/*.{js,ts,jsx,tsx}", "./ui/**/*.{js,ts,jsx,tsx}"],
+	theme: {
+		extend: {
+			colors: {
+				base: colors.zinc,
+				tone: {
+					50: "rgb(var(--color-tone)/ <alpha-value>)",
+					100: "rgb(var(--color-tone)/ <alpha-value>)",
+					200: "rgb(var(--color-tone)/ <alpha-value>)",
+					300: "rgb(var(--color-tone)/ <alpha-value>)",
+					400: "rgb(var(--color-tone)/ <alpha-value>)",
+					500: "rgb(var(--color-tone)/ <alpha-value>)",
+					600: "rgb(var(--color-tone)/ <alpha-value>)",
+					700: "rgb(var(--color-tone)/ <alpha-value>)",
+					800: "rgb(var(--color-tone)/ <alpha-value>)",
+					900: "rgb(var(--color-tone)/ <alpha-value>)",
+				},
+			},
+			borderRadius: {
+				DEFAULT: "30px",
+			},
+			borderColor: ({ theme }) => ({
+				DEFAULT: theme("colors.zinc.400"),
+				...theme("colors"),
+			}),
+			borderOpacity: ({ theme }) => ({
+				DEFAULT: theme("0.2"),
+				...theme("opacity"),
+			}),
+			ringWidth: { DEFAULT: "1.1px" },
+			ringColor: ({ theme }) => ({
+				DEFAULT: theme("colors.base.400"),
+				...theme("colors"),
+			}),
+			ringOpacity: ({ theme }) => ({
+				DEFAULT: "0.2",
+				...theme("opacity"),
+			}),
+			transitionDuration: {
+				DEFAULT: "200ms",
+			},
+			transitionTimingFunction: {
+				DEFAULT: "cubic-bezier(0.1, 0.2, 0.5, 1)",
+			},
+		},
+	},
+	plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+};

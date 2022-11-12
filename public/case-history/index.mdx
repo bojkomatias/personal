@@ -1,0 +1,24 @@
+# Case History
+
+> Doors and Windows ecommerce
+
+### Introduction
+
+Case History is a medical record keeper, exclusively built for self-managed physicians that one to keep everything in one place, with a minimalistic approach. Some of the features offered are, patient management, issue oriented case history for each patient, and calendar / scheduler. Another highlight is that the medic, can only complete indispensable information, and only adding when required, with a special on-demand component list (and according to specialization).
+
+<MainImage slug="case-history" />
+
+### Stack description
+
+<TagMap tags={['next','js','chakra','react','mongo','pwa']} />
+
+For this project I used NextJS, taking advantage of some SSR pages and others staticly
+served. For styling I used ChackaUI, a React based component library that allowed
+for a fast building of highly interactive components. I hooked it all up with Mongo
+for a database, a document oriented solution that easily handles the case histories,
+no matter how big they get. I relied on the API folder that next provides, to write
+some Authentication code, and write the PUT and POST methods to save the data, there
+was little to no need of writing GETs since I worked with SSR pages.
+
+
+<Images slug="case-history" />
