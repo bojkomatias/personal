@@ -7,7 +7,11 @@ module.exports = {
 		extend: {
 			colors: {
 				base: colors.zinc,
-				tone: "rgb(var(--color-tone)/ <alpha-value>)",
+				tone: {
+					500: "rgb(var(--color-tone)/ <alpha-value>)",
+					600: "rgb(var(--color-tone)/ <alpha-value>)",
+					700: "rgb(var(--color-tone)/ <alpha-value>)",
+				},
 			},
 			borderRadius: {
 				DEFAULT: "15px",
