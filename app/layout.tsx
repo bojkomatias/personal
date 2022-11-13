@@ -72,7 +72,32 @@ import HomeLink, { NavItem } from "@ui/Nav";
 import { Button } from "@ui/Button";
 import { Palette, SearchBar } from "./Palette";
 import { getProjects } from "./queries";
-import { navigation } from "./navigation";
+
+const navigation: Nav[] = [
+	{
+		id: 1,
+		name: "Home",
+		href: "/",
+	},
+	{
+		id: 2,
+		name: "About",
+		href: "/about",
+		visible: true,
+	},
+	{
+		id: 3,
+		name: "Projects",
+		href: "/projects",
+		visible: true,
+	},
+	{
+		id: 4,
+		name: "Uses",
+		href: "/uses",
+		visible: true,
+	},
+];
 
 const Header = ({ projects }) => (
 	<header className="pointer-events-none relative z-10 mx-auto h-20 w-full max-w-7xl px-8 pt-6">

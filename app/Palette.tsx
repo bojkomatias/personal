@@ -3,11 +3,9 @@
 import { Combobox } from "@headlessui/react";
 import {
 	AdjustmentsVerticalIcon,
-	ChevronDownIcon,
 	ExclamationTriangleIcon,
 	FolderIcon,
 	LifebuoyIcon,
-	LinkIcon,
 	MagnifyingGlassIcon,
 	ShieldCheckIcon,
 	UserIcon,
@@ -15,9 +13,8 @@ import {
 import { Button } from "@ui/Button";
 import { Modal } from "@ui/Headless";
 import { cx } from "class-variance-authority";
-import { usePathname, useRouter } from "next/navigation";
-import { Fragment, useEffect, useState } from "react";
-import { navigation } from "./navigation";
+import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 export function Palette({ projects }: { projects: Project[] }) {
 	useEffect(() => {
@@ -62,7 +59,7 @@ export function Palette({ projects }: { projects: Project[] }) {
 export function SearchBar({
 	setOpen,
 	projects,
-}: { setOpen: any; projects: Project[] }) {
+}: { setOpen?: Dispatch<SetStateAction<boolean>>; projects: Project[] }) {
 	const router = useRouter();
 
 	const [rawQuery, setRawQuery] = useState("");
@@ -100,7 +97,7 @@ export function SearchBar({
 					: item.fn
 					? item.fn()
 					: router.push(item.href);
-				setOpen(false);
+				setOpen ? setOpen(false) : null;
 			}}
 		>
 			<div className="relative">

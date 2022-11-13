@@ -39,7 +39,6 @@ export const NavItem: FC<{
 						? cx("font-medium text-tone-600 saturate-150", activeClass)
 						: "",
 				)}
-				onClick={close}
 			>
 				{children}
 				{active && activeExtra}
