@@ -1,19 +1,10 @@
 import { Container, Heading } from "@ui/Container";
-import PocketBase from "pocketbase";
+import { getProjects } from "../queries";
 
 import Viewer from "./Viewer";
 
-async function getCases() {
-	const res = await fetch(
-		`${process.env.POCKETBASE_URL}/api/collections/case_studies/records`,
-	);
-
-	const data = await res.json();
-	return data?.items;
-}
-
 export default async function CaseStudiesPage() {
-	const cases = await getCases();
+	const projects = await getProjects();
 
 	return (
 		<Container>
@@ -21,7 +12,7 @@ export default async function CaseStudiesPage() {
 				title="Case Studies and Projects"
 				description={"A list of projects I`ve done myself or with someone else"}
 			/>
-			<Viewer cases={cases} />
+			<Viewer projects={projects} />
 		</Container>
 	);
 }

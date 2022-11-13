@@ -36,15 +36,14 @@ const modeScript = `
   }
 `;
 
-// Lexend, Ubuntu, Raleway
-
 const maven = Ubuntu({ weight: "300", subsets: ["latin"] });
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	const projects = await getProjects();
 	return (
 		<html lang="en" className={cx(maven.className, "dark")}>
 			<head>
@@ -58,7 +57,7 @@ export default function RootLayout({
 				<div className="fixed inset-0 -z-10">
 					<div className="h-full mx-auto max-w-7xl bg-over -z-10 shadow border-x border-base-500/10" />
 				</div>
-				<Header />
+				<Header projects={projects} />
 				{children}
 				<Footer />
 			</body>
@@ -67,35 +66,55 @@ export default function RootLayout({
 }
 
 import ModeToggle from "@ui/ModeToggle";
-
 import { Popover } from "@ui/Headless";
-
-import TonePicker from "./Tone";
 import { cx } from "class-variance-authority";
 import HomeLink, { NavItem } from "@ui/Nav";
 import { Button } from "@ui/Button";
+import { Palette, SearchBar } from "./Palette";
+import { getProjects } from "./queries";
 
-const items = [
-	{ name: "About", href: "/about" },
-	{ name: "Case Studies", href: "/case-studies" },
-	{ name: "Uses", href: "/uses" },
+const navigation: Nav[] = [
+	{
+		id: 1,
+		name: "Home",
+		href: "/",
+	},
+	{
+		id: 2,
+		name: "About",
+		href: "/about",
+		visible: true,
+	},
+	{
+		id: 3,
+		name: "Projects",
+		href: "/projects",
+		visible: true,
+	},
+	{
+		id: 4,
+		name: "Uses",
+		href: "/uses",
+		visible: true,
+	},
 ];
 
-const Header = () => (
+const Header = ({ projects }) => (
 	<header className="pointer-events-none relative z-10 mx-auto h-20 w-full max-w-7xl px-8 pt-6">
 		<div className="relative flex justify-between gap-4">
-			<div className="pointer-events-auto flex flex-grow sm:flex-grow-0 ">
+			<div className="pointer-events-auto flex flex-grow sm:flex-grow-0">
 				<HomeLink />
 			</div>
-			<div className="flex  justify-end sm:justify-center">
-				<MobileNavigation className="pointer-events-auto sm:hidden" />
+			<div className="flex justify-end sm:justify-center">
+				<MobileNavigation
+					projects={projects}
+					className="pointer-events-auto sm:hidden"
+				/>
 				<DesktopNavigation className="pointer-events-auto hidden sm:block" />
 			</div>
-			<div className="flex justify-end">
-				<div className="pointer-events-auto flex gap-1 items-center">
-					<ModeToggle />
-					<TonePicker />
-				</div>
+			<div className="pointer-events-auto gap-2 items-center flex justify-end">
+				<Palette projects={projects} />
+				<ModeToggle />
 			</div>
 		</div>
 	</header>
@@ -105,11 +124,13 @@ const Footer = () => (
 	<footer className="bg-black/80 text-base-400 mx-auto max-w-7xl">
 		<div className="mx-auto max-w-7xl overflow-hidden py-10 px-4 sm:px-6 lg:px-8">
 			<ul className="-mx-5 flex flex-wrap justify-center" aria-label="Footer">
-				{items.map((item) => (
-					<Button key={item.href} styleas="link" href={item.href}>
-						{item.name}
-					</Button>
-				))}
+				{navigation
+					.filter((e) => e.visible)
+					.map((item) => (
+						<Button key={item.href} styleas="link" href={item.href}>
+							{item.name}
+						</Button>
+					))}
 			</ul>
 			<div className="w-fit mx-auto">{/* <SocialIcons /> */}</div>
 			<p className="mt-8 text-center text-sm">
@@ -123,12 +144,12 @@ const Footer = () => (
 	</footer>
 );
 
-function MobileNavigation(props) {
+function MobileNavigation({ projects, ...props }) {
 	return (
 		<div {...props}>
 			<Popover
 				btnText={"Menu"}
-				btnClass="shadow-md"
+				btnClass="shadow-md text-sm pl-4"
 				title={"Navigation"}
 				overlay={true}
 				close={true}
@@ -136,13 +157,18 @@ function MobileNavigation(props) {
 			>
 				<nav className="mt-6">
 					<ul className=" divide-y leading-8">
-						{items.map(({ name, href }) => (
-							<NavItem key={href} href={href}>
-								{name}
-							</NavItem>
-						))}
+						{navigation
+							.filter((e) => e.visible)
+							.map(({ name, href }) => (
+								<NavItem key={href} href={href}>
+									{name}
+								</NavItem>
+							))}
 					</ul>
 				</nav>
+				<div className=" mt-3 bg-base-500/5 -m-2 rounded">
+					<SearchBar projects={projects} />
+				</div>
 			</Popover>
 		</div>
 	);
@@ -152,11 +178,13 @@ function DesktopNavigation(props) {
 	return (
 		<nav {...props}>
 			<ul className="bg-over flex rounded px-3 shadow-md ring drop-shadow">
-				{items.map(({ name, href }) => (
-					<NavItem key={href} href={href}>
-						{name}
-					</NavItem>
-				))}
+				{navigation
+					.filter((e) => e.visible)
+					.map(({ name, href }) => (
+						<NavItem key={href} href={href}>
+							{name}
+						</NavItem>
+					))}
 			</ul>
 		</nav>
 	);

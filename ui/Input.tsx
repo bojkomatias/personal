@@ -20,7 +20,7 @@ const BaseInput: FC<BaseInputProps> = (props) => (
 const labelStyles = cva(['text-xs font-medium absolute'], {
   variants: {
     overlap: {
-      true: ['-top-2 left-2  bg-over  rounded -mt-px px-1'],
+      true: ['-top-2 left-2 bg-over rounded -mt-px px-1'],
     },
     inset: { true: ['top-1 left-2'] },
     regular: { true: ['-top-5 left-0 bg-transparent'] },
