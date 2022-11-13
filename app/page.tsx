@@ -12,23 +12,15 @@ import { SocialIcons } from "@ui/SocialIcons";
 import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
-import Viewer, { MappedTags } from "./case-studies/Viewer";
 
-async function getCases() {
-	const res = await fetch(
-		`${process.env.POCKETBASE_URL}/api/collections/case_studies/records?page=1&perPage=4`,
-	);
-
-	const data = await res.json();
-	return data?.items;
-}
+import Viewer, { MappedTags } from "./projects/Viewer";
+import { getProjects } from "./queries";
 
 export default async function Page() {
-	const cases = await getCases();
-
+	const projects = await getProjects();
 	return (
 		<>
-			<Container className=" 2xl:-mb-32 -mt-10">
+			<Container className="-mb-20 2xl:-mb-48 -mt-10">
 				<div className="max-w-6xl mx-auto">
 					<Image
 						src={"/logo.png"}
@@ -66,28 +58,13 @@ export default async function Page() {
 			<Photos />
 			<Container>
 				<div className="mx-auto grid max-w-xl grid-cols-1 gap-y-16 gap-x-6 lg:max-w-none lg:grid-cols-3">
-					<List gridCols="grid-cols-1 sm:grid-cols-2 lg:col-span-2">
-						{cases.map((project) => (
-							<Card
-								as={Link}
-								key={project.id}
-								href={`case-studies/${project.slug}`}
-								className=" hover:bg-base-500/10 hover:ring-offset-4 focus:ring-base-500 flex-col items-center"
-							>
-								<div className="pointer-events-none p-3 text-xl transition md:pointer-events-auto md:text-2xl">
-									{project.title}
-								</div>
-								<p className="font-thin italic opacity-0 transition group-hover:opacity-100 text-xs">
-									{project.description}
-								</p>
-								<Button className="font-medium text-base-500 text-xs">
-									<LinkIcon className="h-4 w-4 group-hover:text-tone-600 " />
-									{project.slug}
-								</Button>
-								<MappedTags tags={project.tags} />
-							</Card>
-						))}
-					</List>
+					<div className="lg:col-span-2">
+						<Viewer
+							withButton={false}
+							gridCols="grid-cols-1 sm:grid-cols-2"
+							projects={projects.slice(0, 4)}
+						/>
+					</div>
 
 					<Resume />
 				</div>
@@ -123,11 +100,11 @@ function Resume() {
 
 	return (
 		<Card className="flex-col !p-8">
-			<h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+			<h2 className="flex text-sm font-semibold items-center">
 				<BriefcaseIcon className="h-6 w-6 flex-none" />
 				<span className="ml-3">Work</span>
 			</h2>
-			<ol className="mt-6 space-y-5">
+			<ol className="mt-1 space-y-4">
 				{resume.map((role, roleIndex) => (
 					<li key={roleIndex} className="flex gap-4">
 						<Image
@@ -162,11 +139,11 @@ function Resume() {
 					</li>
 				))}
 			</ol>
-			<h2 className="mt-8 flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+			<h2 className="mt-8 flex text-sm font-semibold">
 				<AcademicCapIcon className="h-6 w-6 flex-none" />
 				<span className="ml-3">Studies</span>
 			</h2>
-			<ol className="mt-6 space-y-4">
+			<ol className="mt-1 space-y-4">
 				<li className="flex gap-4">
 					<Image
 						src={studies.logo}
@@ -231,6 +208,7 @@ function Photos() {
 					key={image}
 					className={cx(
 						"relative aspect-[9/10] w-40 flex-none overflow-hidden rounded-xl md:w-64 sm:rounded-2xl shadow-md",
+						"scale-95 hover:scale-105 transition-transform ease-spring cursor-grab active:cursor-grabbing hover:rotate-0 active:scale-100",
 						rotations[i % rotations.length],
 					)}
 				>

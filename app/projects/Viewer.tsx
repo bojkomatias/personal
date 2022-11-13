@@ -9,40 +9,43 @@ import {
 	Squares2X2Icon,
 } from "@heroicons/react/24/outline";
 
-import { useRouter } from "next/navigation";
 import { cx } from "class-variance-authority";
 import { Button } from "@ui/Button";
 
-export default function Viewer({ cases }) {
-	const router = useRouter();
-	const [isGrid, setGrid] = useState(false);
+export default function Viewer({
+	projects,
+	gridCols = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+	withButton = true,
+}: { projects: Project[]; gridCols?: string; withButton?: boolean }) {
+	const [isGrid, setGrid] = useState(true);
 	return (
 		<div className="flex flex-col gap-3">
-			<Button
-				className="flex-shrink self-end sm:block hidden"
-				styleas="secondary"
-				onClick={() => setGrid(!isGrid)}
-			>
-				{isGrid ? (
-					<Bars4Icon className="h-6 w-5" />
-				) : (
-					<Squares2X2Icon className="h-6 w-5" />
-				)}
-			</Button>
+			{withButton ? (
+				<Button
+					className="flex-shrink self-end sm:block hidden"
+					styleas="secondary"
+					onClick={() => setGrid(!isGrid)}
+				>
+					{isGrid ? (
+						<Bars4Icon className="h-6 w-5" />
+					) : (
+						<Squares2X2Icon className="h-6 w-5" />
+					)}
+				</Button>
+			) : null}
 
 			<List
 				className="bg-over"
-				gridCols={cx(
-					isGrid ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1",
-				)}
+				gridCols={cx(isGrid ? gridCols : "grid-cols-1")}
 			>
-				{cases.map((project) => (
+				{projects.map((project) => (
 					<Card
 						as={Link}
 						key={project.id}
-						href={`case-studies/${project.slug}`}
+						href={`projects/${project.slug}`}
 						className={cx(
 							"hover:bg-white/5 hover:ring-offset-2 hover:ring-tone-600 focus:ring-tone-600 hover:shadow-lg !shadow-tone-600/50 place-items-center",
+							"scale-95 hover:scale-100 transition-transform ease-spring focus:scale-[99%] active:scale-[99%]",
 							isGrid ? "grid grid-cols-1" : "grid grid-cols-4",
 						)}
 					>

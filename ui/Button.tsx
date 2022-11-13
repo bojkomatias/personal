@@ -7,7 +7,7 @@ const ButtonStyles = cva(
 		"px-3 xl:px-4 py-2 xl:py-3",
 		"group flex items-center gap-3",
 		"rounded",
-		"outline-none active:scale-[99%] border-0 border-transparent",
+		"outline-none active:scale-[99%] hover:scale-[101%] border-0 border-transparent",
 		"transition",
 	],
 	{

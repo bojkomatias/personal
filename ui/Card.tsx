@@ -1,4 +1,3 @@
-
 import { PropsWithChildren } from "react";
 import { cx } from "class-variance-authority";
 
@@ -31,7 +30,7 @@ export function Card({
 			href={href}
 			className={cx(
 				"flex h-full justify-between",
-				"group gap-3 p-4 relative rounded transition ring bg-base-500/5",
+				"group gap-3 p-4 transition relative rounded ring bg-base-500/5",
 				className,
 			)}
 		>

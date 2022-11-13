@@ -39,6 +39,7 @@ export const NavItem: FC<{
 						? cx("font-medium text-tone-600 saturate-150", activeClass)
 						: "",
 				)}
+				onClick={close}
 			>
 				{children}
 				{active && activeExtra}
@@ -94,7 +95,7 @@ export default function HomeLink() {
 		<Link
 			href={"/"}
 			className={cx(
-				"aspect-square h-8 overflow-hidden rounded-full ring ring-offset-2 transition hover:ring-tone-600 focus:ring-offset-4 hover:ring-offset-4 shadow-md ",
+				"aspect-square h-9 overflow-hidden rounded-full ring ring-offset-2 transition hover:ring-tone-600 focus:ring-offset-4 hover:ring-offset-4 shadow-md ",
 				isHome === null ? "invisible pointer-events-none" : "",
 			)}
 		>

@@ -10,6 +10,7 @@ import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { cva, cx, VariantProps } from "class-variance-authority";
 import {
+	Component,
 	Dispatch,
 	FC,
 	forwardRef,
@@ -39,11 +40,13 @@ export const Modal: FC<DialogProps> = (props) => (
 				<Backdrop />
 			</T.Child>
 			{/* Set panel placement */}
-			<div className={cx("fixed inset-0 flex items-center justify-center")}>
+			<div className={cx("fixed inset-2 pt-6 sm:pt-10 md:pt-24 xl:pt-32")}>
 				{/* Set custom transition */}
 				<T.Child {...transitions.scale}>
 					{/* Panel with modal classes */}
-					<D.Panel className={cx(panelClass, "max-w-lg", props.className)}>
+					<D.Panel
+						className={cx(panelClass, "max-w-sm sm:max-w-lg", props.className)}
+					>
 						{props.children}
 					</D.Panel>
 				</T.Child>
