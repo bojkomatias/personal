@@ -1,34 +1,54 @@
+import { getRecords } from "@api/_server";
 import {
 	AcademicCapIcon,
 	ArrowDownIcon,
 	BriefcaseIcon,
-	LinkIcon,
 } from "@heroicons/react/24/outline";
-import { Button } from "@ui/Button";
-import { Card, List } from "@ui/Card";
-import { Container, Heading } from "@ui/Container";
+import { Project, RecordList } from "@types";
 
+import { Button } from "@ui/Button";
+import { Card } from "@ui/Card";
+import { Container, Heading } from "@ui/Container";
 import { SocialIcons } from "@ui/SocialIcons";
 import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
 
-import Viewer, { MappedTags } from "./projects/Viewer";
-import { getProjects } from "./queries";
+import Viewer from "./projects/Viewer";
+import XD from "./XD";
 
 export default async function Page() {
-	const projects = await getProjects();
+	const { items: projects } = (await getRecords(
+		"projects",
+		1,
+		4,
+	)) as RecordList<Project>;
 	return (
 		<>
-			<Container className="-mb-20 2xl:-mb-48 -mt-10">
-				<div className="max-w-6xl mx-auto">
-					<Image
-						src={"/logo.png"}
-						alt="Personal Picture"
-						width={400}
-						height={400}
-						className="md:ml-20 lg:ml-24 mt-10 mb-4 ml-12 h-40 rounded-full w-40 object-cover object-right ring ring-offset-4  ring-tone-600 shadow-lg shadow-tone-600/50"
-					/>
+			<Container>
+				{/* <XD /> */}
+
+				<div className="max-w-6xl relative w-60 h-60 ml-20 mt-20 mb-6">
+					<div className="absolute inset-0 rounded-full overflow-hidden">
+						<div className="bg-gradient-to-t from-tone-600 via-transparent to-transparent absolute -inset-6 animate-[spin_5s_linear_infinite]" />
+					</div>
+					<div className="absolute inset-0 rounded-full overflow-hidden">
+						<div className="bg-gradient-to-t from-pink-600/50 backdrop-saturate-150 via-transparent to-transparent absolute -inset-6 animate-[spin_3s_linear_infinite]" />
+					</div>
+					<div className="inset-1 bg-base-900 absolute rounded-full" />
+					<div
+						className={
+							"absolute inset-2 flex-none overflow-hidden rounded-full shadow-lg"
+						}
+					>
+						<Image
+							src={"/logo.png"}
+							alt=""
+							width={300}
+							height={300}
+							className="absolute inset-0 w-full object-cover"
+						/>
+					</div>
 				</div>
 
 				<Heading
@@ -62,7 +82,7 @@ export default async function Page() {
 						<Viewer
 							withButton={false}
 							gridCols="grid-cols-1 sm:grid-cols-2"
-							projects={projects.slice(0, 4)}
+							projects={projects}
 						/>
 					</div>
 
@@ -105,8 +125,8 @@ function Resume() {
 				<span className="ml-3">Work</span>
 			</h2>
 			<ol className="mt-1 space-y-4">
-				{resume.map((role, roleIndex) => (
-					<li key={roleIndex} className="flex gap-4">
+				{resume.map((role) => (
+					<li key={role.title} className="flex gap-4">
 						<Image
 							src={role.logo}
 							alt=""
@@ -175,7 +195,7 @@ function Resume() {
 				target="_blank"
 				href="/Matias Bojko - Systems Engineer.pdf"
 				className="mt-6 w-full justify-center"
-				styleas="primary"
+				intent="primary"
 			>
 				Download CV
 				<ArrowDownIcon className="h-4 w-4" />

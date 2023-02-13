@@ -10,11 +10,12 @@ import {
 	ShieldCheckIcon,
 	UserIcon,
 } from "@heroicons/react/24/outline";
+import { Project } from "@schema/*";
 import { Button } from "@ui/Button";
 import { Modal } from "@ui/Headless";
 import { cx } from "class-variance-authority";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 export function Palette({ projects }: { projects: Project[] }) {
 	useEffect(() => {
@@ -29,9 +30,9 @@ export function Palette({ projects }: { projects: Project[] }) {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<div className='sm:block hidden'>
+		<div className="sm:block hidden">
 			<Button
-				styleas="secondary"
+				intent="outline"
 				className="shadow-md text-sm text-base-500"
 				onClick={() => setOpen(true)}
 			>
@@ -59,9 +60,11 @@ export function Palette({ projects }: { projects: Project[] }) {
 export function SearchBar({
 	setOpen,
 	projects,
-}: { setOpen?: Dispatch<SetStateAction<boolean>>; projects: Project[] }) {
+}: {
+	setOpen?: Dispatch<SetStateAction<boolean>>;
+	projects: Project[];
+}) {
 	const router = useRouter();
-
 	const [rawQuery, setRawQuery] = useState("");
 
 	const query = rawQuery.toLowerCase().replace(/^[#>\/]/, "");
@@ -118,42 +121,6 @@ export function SearchBar({
 					static={true}
 					className="max-h-48 sm:max-h-96 scroll-py-10 scroll-pb-2 space-y-4 overflow-y-auto"
 				>
-					{/* {filteredNav.length > 0 && (
-						<li>
-							<h2 className="text-xs font-semibold ">Navigation</h2>
-							<ul className="-mx-4 mt-2 text-sm ">
-								{filteredNav.map((nav) => (
-									<Combobox.Option
-										key={nav.id}
-										value={nav}
-										className={({ active }) =>
-											cx(
-												"flex cursor-pointer select-none items-center px-4 py-2 rounded",
-												active && "bg-base-600/20 ",
-											)
-										}
-									>
-										{({ active }) => (
-											<>
-												<span
-													className={cx(
-														"h-6 w-3 flex-none font-medium flex items-center text-lg",
-														active ? "text-tone-600" : "text-base-500/50",
-													)}
-													aria-hidden="true"
-												>
-													/
-												</span>
-												<span className="ml-3 flex-auto truncate">
-													{nav.name}
-												</span>
-											</>
-										)}
-									</Combobox.Option>
-								))}
-							</ul>
-						</li>
-					)} */}
 					{filteredProjects.length > 0 && (
 						<li>
 							<h2 className="text-xs font-semibold ml-3">Projects</h2>
@@ -269,7 +236,6 @@ export function SearchBar({
 					#
 				</kbd>{" "}
 				<span>for projects,</span>
-
 				<kbd
 					className={cx(
 						"mx-1 flex h-5 w-5 items-center justify-center rounded border  font-semibold sm:mx-2",

@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict":false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -20,7 +20,11 @@
       }
     ],
     "paths": {
-      "@ui/*": ["./ui/*"]
+      "@ui/*": ["./primitives/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@schema": ["./utils/schema"],
+      "@types": ["./utils/types"],
+      "@api/*": ["./utils/queries/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/case-studies/[slug]/page.tsx", "hooks/useI18n.ts", "lib/i18n.ts"],

@@ -3,11 +3,14 @@
     "pocketbase",
     "rome",
     "rosetta",
-    "styleas",
+    "intent",
     "Sudamericana"
   ],
-  "typescript.tsdk": "node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib",
+  "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.3/node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.defaultFormatter": "rome.rome",
-  "cSpell.language": "en,es"
+  "cSpell.language": "en,es",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rome.rome"
+  }
 }

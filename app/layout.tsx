@@ -1,5 +1,13 @@
-import "../ui/globals.css";
+import "./index.css";
 import { Ubuntu } from "@next/font/google";
+import ModeToggle from "@ui/ModeToggle";
+import { Popover } from "@ui/Headless";
+import HomeLink, { NavItem } from "@ui/Nav";
+import { Button } from "@ui/Button";
+import { Palette, SearchBar } from "./Palette";
+import { Nav, type Project, RecordList } from "@schema/*";
+import { cx } from "class-variance-authority";
+import { getRecords } from "@api/_server";
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -36,21 +44,21 @@ const modeScript = `
   }
 `;
 
-const maven = Ubuntu({ weight: "300", subsets: ["latin"] });
+const ubuntu = Ubuntu({ weight: "300", subsets: ["latin"] });
 
 export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	const projects = await getProjects();
+	const { items: projects } = await getRecords<Project>("projects");
 	return (
-		<html lang="en" className={cx(maven.className, "dark")}>
+		<html className={cx(ubuntu.className, "dark")}>
 			<head>
 				<script dangerouslySetInnerHTML={{ __html: modeScript }} />
 				<link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
 				<meta charSet="UTF-8" />
-				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+				<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</head>
 			<body className="bg-base text-base-900 subpixel-antialiased dark:text-base-100 font-light">
@@ -59,19 +67,12 @@ export default async function RootLayout({
 				</div>
 				<Header projects={projects} />
 				{children}
+				<div className="mb-32" />
 				<Footer />
 			</body>
 		</html>
 	);
 }
-
-import ModeToggle from "@ui/ModeToggle";
-import { Popover } from "@ui/Headless";
-import { cx } from "class-variance-authority";
-import HomeLink, { NavItem } from "@ui/Nav";
-import { Button } from "@ui/Button";
-import { Palette, SearchBar } from "./Palette";
-import { getProjects } from "./queries";
 
 const navigation: Nav[] = [
 	{
@@ -127,7 +128,7 @@ const Footer = () => (
 				{navigation
 					.filter((e) => e.visible)
 					.map((item) => (
-						<Button key={item.href} styleas="link" href={item.href}>
+						<Button key={item.href} intent="link" href={item.href}>
 							{item.name}
 						</Button>
 					))}

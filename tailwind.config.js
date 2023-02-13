@@ -2,7 +2,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
 	darkMode: "class",
-	content: ["./app/**/*.{js,ts,jsx,tsx}", "./ui/**/*.{js,ts,jsx,tsx}"],
+	content: ["./app/**/*.{js,ts,jsx,tsx}", "./primitives/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {
 			colors: {
@@ -40,7 +40,17 @@ module.exports = {
 				DEFAULT: "cubic-bezier(0, 0, 0, 1)",
 				spring: "cubic-bezier(0, 0, 0, 2)",
 			},
+			keyframes: {
+				'spin-bw': {
+					'100%': { transform: 'rotate(-360deg)' },
+				}
+			}
 		},
 	},
-	plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+	plugins: [
+		require("@tailwindcss/typography"),
+		require("@tailwindcss/forms")({
+			strategy: "base", // only generate classes
+		}),
+	],
 };
